@@ -1,4 +1,4 @@
-(defproject mkremins/drawille-clj "0.1.1-SNAPSHOT"
+(defproject mkremins/drawille-clj "0.2.0"
   :description "Drawing in terminal with unicode braille characters"
   :url "https://github.com/mkremins/drawille-clj"
   :license {:name "MIT License"

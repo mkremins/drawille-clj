@@ -5,7 +5,7 @@ drawille-clj is a Clojure library that lets you draw in the terminal using Unico
 Add to your `project.clj`:
 
 ```clojure
-[mkremins/drawille-clj "0.1.0"]
+[mkremins/drawille-clj "0.2.0"]
 ```
 
 Pull in the namespace:
