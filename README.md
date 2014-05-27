@@ -31,6 +31,9 @@ Returns a canvas like `canvas`, but with the point `[x y]` disabled.
 #### (toggle canvas [x y])
 Returns a canvas like `canvas`, but with the point `[x y]` toggled.
 
+#### (line canvas [x1 y1] [x2 y2])
+Returns a canvas like `canvas`, but with a straight line connecting `[x1 y1]` and `[x2 y2]`.
+
 #### (canvas->str canvas)
 Renders `canvas` to a newline-delimited string. The string will contain `h/4` lines, each having `w/2` characters, where `w` and `h` are the width and height of `canvas` respectively.
 

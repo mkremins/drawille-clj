@@ -36,6 +36,24 @@
 (defn toggle [canvas pt]
   (update-in canvas (pt->cpath pt) bit-xor (pt->mask pt)))
 
+(defn- minmax [n1 n2]
+  [(min n1 n2) (max n1 n2)])
+
+(defn line
+  "Returns a canvas like `canvas`, but with a straight line drawn between the
+   two specified points."
+  [canvas [x1 y1] [x2 y2]]
+  (let [[min-x max-x] (minmax x1 x2)
+        [min-y max-y] (minmax y1 y2)
+        stepc (inc (- max-x min-x))
+        step  (/ (inc (- max-y min-y)) stepc)
+        steps (->> min-y (iterate (partial + step)) (take stepc) (map int))
+        xs (range min-x (inc max-x))
+        ys (if (or (and (= min-x x1) (not= min-y y1))
+                   (and (not= min-x x1) (= min-y y1)))
+               (reverse steps) steps)]
+    (reduce set canvas (zipmap xs ys))))
+
 (def ^:private braille-char-offset 0x2800)
 
 (defn- cc->ch [cc]
